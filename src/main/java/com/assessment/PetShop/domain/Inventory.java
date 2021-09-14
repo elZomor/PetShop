@@ -8,7 +8,7 @@ public class Inventory {
     @GeneratedValue
     private Integer id ;
 
-    @ManyToOne
+    @OneToMany
     @Column
     private Dog dog ;
 
