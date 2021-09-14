@@ -8,8 +8,8 @@ public class Inventory {
     @GeneratedValue
     private Integer id ;
 
-    @OneToMany
-    @Column
+    @OneToOne (fetch = FetchType.EAGER)
+    @JoinColumn(name = "dogId")
     private Dog dog ;
 
     @Column

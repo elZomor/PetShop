@@ -12,7 +12,6 @@ public class Order {
     private Integer id ;
 
     @ManyToOne
-    @Column
     private Customer customer ;
 
     @CreatedDate

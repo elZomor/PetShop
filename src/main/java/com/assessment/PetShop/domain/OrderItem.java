@@ -9,15 +9,12 @@ public class OrderItem {
     private Integer id ;
 
     @ManyToOne
-    @Column
     private Order order ;
 
     @ManyToOne
-    @Column
     private Customer customer ;
 
     @ManyToOne
-    @Column
     private Dog dog ;
 
     @Column

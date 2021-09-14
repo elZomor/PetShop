@@ -16,7 +16,7 @@ public class Customer {
     private String email ;
 
 // Set FetchType to (Eager) to retrieve the orders by the customer once initialized
-    @OneToMany (fetch = FetchType.EAGER , mappedBy = "customer")
+    @OneToMany (fetch = FetchType.EAGER, mappedBy = "customer")
     private List<Order> orderList ;
 
     public Customer(){}
