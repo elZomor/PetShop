@@ -6,6 +6,6 @@ import org.springframework.data.repository.CrudRepository;
 import java.util.List;
 
 public interface DogRepository extends CrudRepository<Dog,Integer> {
-    public List<Dog> findAll() ;
-    public List<Dog> findByBreed(String breed) ;
+    List<Dog> findAll() ;
+    List<Dog> findByBreed(String breed) ;
 }
