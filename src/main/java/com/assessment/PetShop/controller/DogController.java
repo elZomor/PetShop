@@ -7,18 +7,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.server.ResponseStatusException;
-
 import javax.validation.Valid;
 import java.util.*;
-import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/dogs")
 public class DogController {
     final private DogRepository dogRepository ;
 
-    @Autowired
     public DogController(DogRepository dogRepository) {
         this.dogRepository = dogRepository;
     }
