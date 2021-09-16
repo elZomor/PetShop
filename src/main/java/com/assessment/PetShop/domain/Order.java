@@ -6,6 +6,7 @@ import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
+@Table(name = "order_table")
 public class Order {
     @Id
     @GeneratedValue

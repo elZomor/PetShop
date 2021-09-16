@@ -1,6 +1,7 @@
 package com.assessment.PetShop.domain;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 @Entity
 public class Dog {
@@ -9,10 +10,12 @@ public class Dog {
     private Integer id ;
 
     @Column
+    @NotNull
     private String breed ;
 
     @Column
-    private char sex ;
+    @NotNull
+    private Character sex ;
 
     public Dog(){}
     public Dog(String breed, char sex) {
@@ -32,11 +35,11 @@ public class Dog {
         this.breed = breed;
     }
 
-    public char getSex() {
+    public Character getSex() {
         return sex;
     }
 
-    public void setSex(char sex) {
+    public void setSex(Character sex) {
         this.sex = sex;
     }
 }
