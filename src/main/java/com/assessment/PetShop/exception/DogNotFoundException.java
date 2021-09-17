@@ -3,6 +3,7 @@ package com.assessment.PetShop.exception;
 public class DogNotFoundException extends RuntimeException {
     public DogNotFoundException(Integer id) {
         super (String.format("Dog with id: %s is not found",id));
+        System.out.println(id);
     }
 
     public DogNotFoundException() {

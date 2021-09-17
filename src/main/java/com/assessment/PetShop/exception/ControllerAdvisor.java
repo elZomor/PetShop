@@ -32,7 +32,7 @@ public class ControllerAdvisor extends ResponseEntityExceptionHandler {
         System.out.println("handleDogNotFoundException");
         Map<String, Object> body = new HashMap<>();
         body.put("timestamp", LocalDateTime.now());
-        body.put("message", "Dog not found");
+        body.put("message", ex.getLocalizedMessage());
         body.put("code" , 404);
         body.put("error" , "Operation is not successful");
 

@@ -49,10 +49,12 @@ public class DogController {
         Dog dog = dogRepository.findById(id)
                 .orElseThrow(() -> new DogNotFoundException(id)) ;
         changes.forEach(
+
                 (change,value) -> {
                     switch (change) {
-                        case "breed" : dog.setBreed((String) value); break ;
-                        case "sex" : dog.setSex((char) value);
+                        case "breed" : if (!Objects.isNull(value)) dog.setBreed((String) value); break ;
+                        case "sex" :if (!Objects.isNull(value)) dog.setSex((char) value) ; break ;
+                        case "id" : dog.setId(id); break ;
                     }
                 }
         );
@@ -61,6 +63,7 @@ public class DogController {
 
     @PutMapping("/{id}")
     public ResponseEntity<Dog> updateDog (@PathVariable(name = "id") Integer id , @RequestBody Dog newDog) {
+        System.out.println(id);
         return dogRepository.findById(id).map(
                     dog -> {
                         dog.setSex(newDog.getSex());
