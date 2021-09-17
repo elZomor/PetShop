@@ -1,10 +1,6 @@
 package com.assessment.PetShop.controller;
 
-import com.assessment.PetShop.domain.Customer;
-import com.assessment.PetShop.domain.Dog;
-import com.assessment.PetShop.domain.Order;
-import com.assessment.PetShop.domain.OrderItem;
-import com.assessment.PetShop.exception.CustomerException;
+import com.assessment.PetShop.domain.*;
 import com.assessment.PetShop.exception.DogNotFoundException;
 import com.assessment.PetShop.exception.InventoryException;
 import com.assessment.PetShop.repo.*;
@@ -16,25 +12,24 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
-
 @RestController
 @RequestMapping("/orders")
 public class OrderController {
-    @Autowired
     OrderRepository orderRepository ;
-
-    @Autowired
     InventoryRepository inventoryRepository ;
-
-    @Autowired
     OrderItemRepository orderItemRepository ;
-
-    @Autowired
     DogRepository dogRepository;
-
-    @Autowired
     CustomerRepository customerRepository ;
+
+    public OrderController(OrderRepository orderRepository, InventoryRepository inventoryRepository,
+                           OrderItemRepository orderItemRepository, DogRepository dogRepository,
+                           CustomerRepository customerRepository) {
+        this.orderRepository = orderRepository;
+        this.inventoryRepository = inventoryRepository;
+        this.orderItemRepository = orderItemRepository;
+        this.dogRepository = dogRepository;
+        this.customerRepository = customerRepository;
+    }
 
     @PostMapping("/create")
     public ResponseEntity<Order> createOrder (@RequestBody OrderItem orderItem) {
@@ -53,6 +48,6 @@ public class OrderController {
         Order order = orderRepository.save(new Order(orderItem.getCustomer())) ;
         orderItem.setOrder(order);
         orderItemRepository.save(orderItem) ;
-        return new ResponseEntity<>(order, HttpStatus.OK) ;
+        return new ResponseEntity<>(order, HttpStatus.CREATED) ;
     }
 }

@@ -36,6 +36,8 @@ public class OrderItem {
         return id;
     }
 
+    public void setId(Integer id) {this.id = id ;}
+
     public Order getOrder() {
         return order;
     }
