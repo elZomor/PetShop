@@ -8,7 +8,10 @@ so this includes the following tasks:
 Just pull the app from github and run the main file  
 **PetShopApplication.java**  
 And the apis are available on the following link:  
-[DogsAPI](http://localhost:8080/dogs)
+[DogsAPI](http://localhost:8080/dogs)  
+**_For Order process_**
+1. Create inventory request
+2. Create order request
 ***
 ## Usage
 ####*__*All requests are in JSON format__*
@@ -86,24 +89,28 @@ And the apis are available on the following link:
    {}  
    **Response Code: _200_**  
    **Invalid Response Code: _404_ if wrong ID , _405_ if wrong parameters**
+###Create Inventory
+To create a new inventory:  
+[Create Inventory](http://localhost:8080/inventory)  
+**Request Example:**  
+{"dog" {"breed" : "labrador" , "sex" : "m"}, "quantity" : 10 }  
+**Request Type: _POST_**  
+**Response Example:**  
+{"id" : 1 , "dog" {"breed" : "labrador" , "sex" : "m"}, "quantity" : 10 }  
+**Response Code: _201_**  
+**Invalid Response Code: _400_**
 ###Create Order
-
-## Contributing
-
-1. Fork it!
-2. Create your feature branch: `git checkout -b my-new-feature`
-3. Commit your changes: `git commit -am 'Add some feature'`
-4. Push to the branch: `git push origin my-new-feature`
-5. Submit a pull request :D
-
-## History
-
-TODO: Write history
-
-## Credits
-
-TODO: Write credits
-
-## License
-
-TODO: Write license
+To create a new inventory:  
+[Create Order](http://localhost:8080/inventory)  
+**Request Example:**  
+{"customer" : {"name" : "mohamed" , "email" : "m@123.com"} , "dog" : {"breed" : "labrador" , "sex" : "m"}, "price" : 10 , "currency" : "EGP" }  
+**Request Type: _POST_**  
+**Response Example:**  
+{"id": 4,"customer": {"id": 3,"name": "mohamed","email": "123@d.com"},"createdAt": "2021-09-17T18:32:28.015032600Z"}  
+**Response Code: _201_**  
+**Invalid Response Code: _400_**
+***
+## Testing
+To test, you can run the following command in terminal using mvn:  
+**.\mvnw clean test**
+***
