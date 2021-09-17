@@ -15,10 +15,6 @@ public class Customer {
     @Column
     private String email ;
 
-// Set FetchType to (Eager) to retrieve the orders by the customer once initialized
-    @OneToMany (fetch = FetchType.EAGER , cascade=CascadeType.ALL , mappedBy = "customer")
-    private List<Order> orderList ;
-
     public Customer(){}
     public Customer(String name, String email) {
         this.name = name;
@@ -47,11 +43,4 @@ public class Customer {
         this.email = email;
     }
 
-    public List<Order> getOrderList() {
-        return orderList;
-    }
-
-    public void setOrderList(List<Order> orderList) {
-        this.orderList = orderList;
-    }
 }

@@ -1,11 +1,15 @@
 package com.assessment.PetShop.domain;
 
 import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
+import javax.persistence.criteria.CriteriaBuilder;
+import java.time.Instant;
 import java.time.LocalDateTime;
 
 @Entity
+@EntityListeners(AuditingEntityListener.class)
 @Table(name = "order_table")
 public class Order {
     @Id
@@ -16,7 +20,8 @@ public class Order {
     private Customer customer ;
 
     @CreatedDate
-    private LocalDateTime createdAt ;
+    @Column
+    private Instant createdAt ;
 
     public Order(){}
     public Order(Customer customer) {
@@ -35,11 +40,11 @@ public class Order {
         this.customer = customer;
     }
 
-    public LocalDateTime getCreatedAt() {
+    public Instant getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(LocalDateTime createdAt) {
+    public void setCreatedAt(Instant createdAt) {
         this.createdAt = createdAt;
     }
 }
