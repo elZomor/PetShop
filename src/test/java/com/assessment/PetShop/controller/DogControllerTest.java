@@ -54,7 +54,6 @@ class DogControllerTest {
     @Test
     void getSingleDog() throws Exception{
         dog_1.setId(1);
-        List<Dog> dogs = new ArrayList<>(Arrays.asList(dog_1,dog_2,dog_3));
         Mockito.when(dogRepository.findById(dog_1.getId())).thenReturn(
                 java.util.Optional.of(dog_1));
         mockMvc.perform(MockMvcRequestBuilders

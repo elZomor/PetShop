@@ -18,10 +18,8 @@ public class Order {
     @CreatedDate
     private LocalDateTime createdAt ;
 
-    public Order(){}
-    public Order(Customer customer, LocalDateTime createdAt) {
+    public Order(Customer customer) {
         this.customer = customer;
-        this.createdAt = createdAt;
     }
 
     public Integer getId() {
