@@ -8,13 +8,13 @@ public class OrderItem {
     @GeneratedValue
     private Integer id ;
 
-    @ManyToOne
+    @ManyToOne(cascade=CascadeType.ALL)
     private Order order ;
 
-    @ManyToOne
+    @ManyToOne(cascade=CascadeType.ALL)
     private Customer customer ;
 
-    @ManyToOne
+    @ManyToOne(cascade=CascadeType.ALL)
     private Dog dog ;
 
     @Column

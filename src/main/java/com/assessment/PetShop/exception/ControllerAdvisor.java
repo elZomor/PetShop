@@ -29,7 +29,17 @@ public class ControllerAdvisor extends ResponseEntityExceptionHandler {
 
     @ExceptionHandler(DogNotFoundException.class)
     public ResponseEntity<Object> handleDogNotFoundException (DogNotFoundException ex , WebRequest request) {
-        System.out.println("handleDogNotFoundException");
+        Map<String, Object> body = new HashMap<>();
+        body.put("timestamp", LocalDateTime.now());
+        body.put("message", ex.getLocalizedMessage());
+        body.put("code" , 404);
+        body.put("error" , "Operation is not successful");
+
+        return new ResponseEntity<>(body, HttpStatus.NOT_FOUND);
+    }
+
+    @ExceptionHandler(InventoryException.class)
+    public ResponseEntity<Object> handleInventoryException (InventoryException ex , WebRequest request) {
         Map<String, Object> body = new HashMap<>();
         body.put("timestamp", LocalDateTime.now());
         body.put("message", ex.getLocalizedMessage());

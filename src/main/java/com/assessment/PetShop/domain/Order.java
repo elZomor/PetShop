@@ -12,12 +12,13 @@ public class Order {
     @GeneratedValue
     private Integer id ;
 
-    @ManyToOne
+    @ManyToOne(cascade=CascadeType.ALL)
     private Customer customer ;
 
     @CreatedDate
     private LocalDateTime createdAt ;
 
+    public Order(){}
     public Order(Customer customer) {
         this.customer = customer;
     }

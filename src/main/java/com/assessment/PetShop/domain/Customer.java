@@ -16,14 +16,13 @@ public class Customer {
     private String email ;
 
 // Set FetchType to (Eager) to retrieve the orders by the customer once initialized
-    @OneToMany (fetch = FetchType.EAGER, mappedBy = "customer")
+    @OneToMany (fetch = FetchType.EAGER , cascade=CascadeType.ALL , mappedBy = "customer")
     private List<Order> orderList ;
 
     public Customer(){}
-    public Customer(String name, String email, List<Order> orderList) {
+    public Customer(String name, String email) {
         this.name = name;
         this.email = email;
-        this.orderList = orderList;
     }
 
     public Integer getId() {
