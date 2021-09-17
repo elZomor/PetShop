@@ -114,3 +114,6 @@ To create a new inventory:
 To test, you can run the following command in terminal using mvn:  
 **.\mvnw clean test**
 ***
+## Coverage Report
+You can find it in the following path  
+src/main/java/resources/Coverage Report
